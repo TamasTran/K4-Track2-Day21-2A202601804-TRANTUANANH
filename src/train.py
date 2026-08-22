@@ -47,7 +47,7 @@ def train(
         mlflow.log_params(params)
 
         # TODO 4: Khoi tao va huan luyen GradientBoostingClassifier
-        # Goi y: su dung random_state=42 de dam bao tinh tai tao
+        # Goi y: su dung random_state=42 de dam bao tinh tai tao f
         model = GradientBoostingClassifier(n_estimators=params["n_estimators"],
                                            learning_rate=params["learning_rate"],
                                            max_depth=params["max_depth"],
