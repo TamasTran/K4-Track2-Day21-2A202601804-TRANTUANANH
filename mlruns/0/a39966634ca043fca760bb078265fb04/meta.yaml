@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/tamas/OneDrive/Desktop/Work/VinUni/K4-Track2-Day21-2A202601804-TRANTUANANH/mlruns/0/a39966634ca043fca760bb078265fb04/artifacts
+end_time: 1787402007075
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a39966634ca043fca760bb078265fb04
+run_name: trusting-gull-419
+run_uuid: a39966634ca043fca760bb078265fb04
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1787401995985
+status: 3
+tags: []
+user_id: tamas
