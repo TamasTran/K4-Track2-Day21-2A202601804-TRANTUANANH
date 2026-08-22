@@ -1,11 +1,12 @@
 mlflow==2.13.0
 scikit-learn==1.4.2
 pandas==2.2.2
-dvc[s3]==3.50.1
+dvc==3.50.1
+dvc-s3==3.3.0
+boto3==1.43.56
 pathspec==0.11.2
 pytest==8.2.0
 fastapi==0.111.0
 uvicorn==0.29.0
 joblib==1.4.2
 pyyaml==6.0.1
-boto3
