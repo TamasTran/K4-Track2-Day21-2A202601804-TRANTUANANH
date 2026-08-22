@@ -32,8 +32,8 @@ def train(
     """
 
     # TODO 1: Doc du lieu huan luyen va danh gia
-    df_train = pd.read_csv("data/train_batch1.csv")
-    df_eval  = pd.read_csv("data/holdout.csv")
+    df_train = pd.read_csv(data_path)
+    df_eval  = pd.read_csv(eval_path)
 
     # TODO 2: Tach dac trung (X) va nhan (y)
     X_train = df_train.drop(columns=["target"])
