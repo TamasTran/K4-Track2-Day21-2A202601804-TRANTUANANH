@@ -154,4 +154,6 @@ jobs:
           script: |
             sudo systemctl restart income-api
             sleep 5
+            sudo systemctl status income-api --no-pager || true
+            sudo journalctl -u income-api -n 20 --no-pager || true
             curl -sf http://localhost:8080/healthz && echo "Health check passed." || exit 1

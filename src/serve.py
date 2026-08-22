@@ -24,6 +24,7 @@ def download_model():
     # TODO 2: Lay bucket va blob tuong ung (Voi boto3 ko can thiet)
 
     # TODO 3: Tai file model xuong may
+    os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
     s3.download_file(ARTIFACT_BUCKET, MODEL_KEY, MODEL_PATH)
 
     # TODO 4: In thong bao thanh cong
