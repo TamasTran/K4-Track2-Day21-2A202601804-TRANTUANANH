@@ -157,31 +157,14 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           envs: AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,ARTIFACT_BUCKET
           script: |
-            sudo tee /etc/systemd/system/income-api.env > /dev/null <<EOF
-            AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-            AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-            AWS_DEFAULT_REGION=us-east-1
-            ARTIFACT_BUCKET=$ARTIFACT_BUCKET
-            EOF
-            sudo tee /etc/systemd/system/income-api.service > /dev/null <<EOF
-            [Unit]
-            Description=Income Model Inference Server
-            After=network.target
-
+            sudo mkdir -p /etc/systemd/system/income-api.service.d
+            sudo tee /etc/systemd/system/income-api.service.d/override.conf > /dev/null <<EOF
             [Service]
-            User=$USER
-            WorkingDirectory=/home/$USER
-            EnvironmentFile=/etc/systemd/system/income-api.env
-            ExecStart=/home/$USER/venv/bin/uvicorn serve:app --app-dir /home/$USER/src --host 0.0.0.0 --port 8080
-            Restart=always
-            RestartSec=5
-
-            [Install]
-            WantedBy=multi-user.target
+            Environment="AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+            Environment="AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
+            Environment="AWS_DEFAULT_REGION=us-east-1"
+            Environment="ARTIFACT_BUCKET=$ARTIFACT_BUCKET"
             EOF
-            sudo sed -i 's/^            //' /etc/systemd/system/income-api.env
-            sudo sed -i 's/^            //' /etc/systemd/system/income-api.service
-            sudo chmod 600 /etc/systemd/system/income-api.env
             sudo systemctl daemon-reload
             sudo systemctl restart income-api
             sleep 5

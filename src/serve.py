@@ -32,8 +32,12 @@ def download_model():
 
 
 
-download_model()
-model = joblib.load(MODEL_PATH)
+model = None
+try:
+    download_model()
+    model = joblib.load(MODEL_PATH)
+except Exception as e:
+    print(f"WARNING: Could not load model: {e}")
 
 
 class ScoreRequest(BaseModel):
@@ -48,7 +52,8 @@ def healthz():
 
     Tra ve: {"status": "ok"}
     """
-    # TODO 5: Tra ve dict {"status": "ok"}
+    if model is None:
+        return {"status": "model not loaded"}
     return {"status": "ok"}
 
 
@@ -68,7 +73,8 @@ def score(req: ScoreRequest):
     if len(req.features) != 10:
         raise HTTPException(status_code=400, detail="Invalid number of features")
 
-    # TODO 7: Goi model.predict([req.features]) de lay ket qua du doan.
+    if model is None:
+        raise HTTPException(status_code=503, detail="Model not loaded yet")
     pred = model.predict([req.features])
 
     # TODO 8: Tra ve dict chua "prediction" (int) va "label" (string).
