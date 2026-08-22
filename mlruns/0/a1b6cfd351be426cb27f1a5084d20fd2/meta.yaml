@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/tamas/OneDrive/Desktop/Work/VinUni/K4-Track2-Day21-2A202601804-TRANTUANANH/mlruns/0/a1b6cfd351be426cb27f1a5084d20fd2/artifacts
+end_time: 1787393855573
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a1b6cfd351be426cb27f1a5084d20fd2
+run_name: calm-frog-477
+run_uuid: a1b6cfd351be426cb27f1a5084d20fd2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1787393848031
+status: 3
+tags: []
+user_id: tamas
