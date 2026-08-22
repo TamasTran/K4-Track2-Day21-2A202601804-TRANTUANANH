@@ -31,7 +31,7 @@ def train(
         f1 (float): diem F1 cua lop duong (thu nhap > 50K) tren tap holdout.
     """
 
-    # TODO 1: Doc du lieu huan luyen va danh gia fa
+    # TODO 1: Doc du lieu huan luyen va danh gia
     df_train = pd.read_csv(data_path)
     df_eval  = pd.read_csv(eval_path)
 
